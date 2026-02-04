@@ -32,3 +32,16 @@ resource "openstack_images_image_v2" "kali" {
     "owner_specified.openstack.gui_access" = true
   }
 }
+
+resource "openstack_images_image_v2" "noble_man" {
+  count            = var.noble_man ? 1 : 0
+  name             = "ubuntu-noble-man"
+  image_source_url = "https://gm7ve.upcloudobjects.com/crczp-images/ubuntu-noble-man.qcow2"
+  container_format = "bare"
+  disk_format      = "qcow2"
+
+  properties = {
+    os_type                                = "linux"
+    "owner_specified.openstack.gui_access" = true
+  }
+}
