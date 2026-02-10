@@ -28,9 +28,11 @@ resource "openstack_images_image_v2" "kali" {
   disk_format      = "qcow2"
 
   properties = {
-    os_type                                = "linux"
-    "owner_specified.openstack.gui_access" = true
+    os_type = "linux"
   }
+
+  # This helps Terraform retry if the connection flickers
+  verify_checksum = true
 }
 
 resource "openstack_images_image_v2" "noble_man" {
