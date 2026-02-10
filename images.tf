@@ -23,7 +23,7 @@ resource "openstack_images_image_v2" "debian_12" {
 resource "openstack_images_image_v2" "kali" {
   count            = var.kali ? 1 : 0
   name             = "kali"
-  image_source_url = "http://localhost:50025/kali.qcow2"
+  local_file_path  = "/home/kolla/devops-tf-deployment-master/tf-openstack-base/kali.qcow2"
   container_format = "bare"
   disk_format      = "qcow2"
 
