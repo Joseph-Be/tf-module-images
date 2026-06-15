@@ -1,6 +1,6 @@
 resource "openstack_images_image_v2" "noble" {
   name             = "ubuntu-noble-x86_64"
-  image_source_url = "/home/cyberrange/ImagesCyberRange/noble-server-cloudimg-amd64.img"
+  local_file_path = "/home/cyberrange/ImagesCyberRange/noble-server-cloudimg-amd64.img"
   container_format = "bare"
   disk_format      = "qcow2"
 
@@ -38,7 +38,7 @@ resource "openstack_images_image_v2" "kali" {
 resource "openstack_images_image_v2" "noble_man" {
   count            = var.noble_man ? 1 : 0
   name             = "ubuntu-noble-man"
-  image_source_url = "/home/cyberrange/ImagesCyberRange/ubuntu-noble-man.qcow2"
+  local_file_path = "/home/cyberrange/ImagesCyberRange/ubuntu-noble-man.qcow2"
   container_format = "bare"
   disk_format      = "qcow2"
 
